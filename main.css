@@ -43,6 +43,10 @@ section p {
     margin: 0 10px;
 }
 
+.contact-form h2 {
+    display: none;
+}
+
 footer {
     text-align: center;
     padding: 10px 0;
@@ -54,6 +58,10 @@ p {
 
 figcaption, label, input, small {
     font-size: 1em;
+}
+
+nav h2 {
+    display: none;
 }
 
 nav a {
