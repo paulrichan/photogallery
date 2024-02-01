@@ -1,7 +1,51 @@
+:root {
+    --primary: #007d7b;
+    --black: #000;
+    --white: #fff;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--black);
+    padding: 0 10px;
+}
+
+header, main {
+    background-color: var(--white);
+}
+
+header, main, footer {
+    margin: 0 auto;
+}
+
+section p {
+    padding: 10px;
+}
+
+#about, #gallery, #contact {
+    padding: 15px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    gap: 10px;
+
+    margin: 0 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
 }
 
 p {
@@ -13,13 +57,196 @@ figcaption, label, input, small {
 }
 
 nav a {
-    font-size: 1.5em;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin: 0 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+nav a:focus {
+    outline: 2px solid var(--primary);
+    border-radius: 10px;
+
+    outline-offset: 5px;
+}
+
+nav a:visited {
+    border-bottom: 2px solid var(--primary);
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2.5em;
+    color: var(--primary);
+    padding: 10px;
+
 }
 
 h2 {
     font-size: 2em;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+small {
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+nav {
+    display: flex;
+    background-color: var(--black);
+    padding: 30px 0;
+    justify-content: center;
+    align-items: center;
+}
+
+a[href="#"] {
+    background-color: var(--black);
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+
+    padding: 7.5px;
+
+    border-top: 1px solid var(--white);
+    border-left: 1px solid var(--white);
+    border-top-left-radius: 10px;
+
+    z-index: 10;
+}
+
+#contact {
+    background-color: var(--black);
+    color: var(--white);
+}
+
+#contact p {
+    text-align: center;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+input::placeholder {
+    text-transform: uppercase;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+button[type="submit"] {
+    width: 50%;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 10px;
+
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+    background-color: #005958;
+    color: rgba(255,255,255,0.7)
+}
+
+button[type="submit"]:active {
+    transform: scale(0.99);
+}
+
+span[aria-label="Contact form"] {
+    visibility: hidden;
+}
+
+label {
+    width: 90%;
+    margin-left: 10px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+figure {
+    position: relative;
+    /* margin: 0 10px; */
+    height: fit-content;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figcaption {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 15px;
+    text-transform: uppercase;
+    z-index: 1;
+}
+
+/* 1 2 3 7 12 are color white */
+figure:nth-child(1) figcaption, figure:nth-child(2) figcaption, figure:nth-child(3) figcaption, figure:nth-child(7) figcaption, figure:nth-child(12) figcaption {
+    color: var(--white);
+}
+
+/* 1 3 6 7 are bottom */
+figure:nth-child(1) figcaption, figure:nth-child(3) figcaption, figure:nth-child(6) figcaption, figure:nth-child(7) figcaption {
+    bottom: 15px;
+    top: auto;
+}
+
+@media (min-width: 485px) {
+    header, main, footer {
+        max-width: 750px;
+    }
+
+    nav a {
+        font-size: 1.5em;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1300px) {
+    header, main, footer {
+        max-width: 1200px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    nav {
+        justify-content: end;
+    }
 }
